@@ -1,0 +1,24 @@
+
+/*     Java Program for the Dec 7 : k-th smallest element in BST    */
+
+class Solution {
+public static int ans,kth;
+    public int KthSmallestElement(Node root, int K) {
+       
+        ans=-1;
+        kth=K;
+        find(root);
+        return ans;
+    }
+    
+    
+    public static void find(Node root) {
+        if(root==null || kth<=0) return;
+        find(root.left);
+        if(kth==1) {
+            ans = root.data;
+        }
+        kth--;
+        find(root.right);
+    }
+}
